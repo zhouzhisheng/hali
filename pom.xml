@@ -59,8 +59,8 @@
 		<!-- java 实用工具类 -->
 		<dependency>
 			<groupId>cn.hutool</groupId>
-			<artifactId>hutool-all</artifactId>
-			<version>4.1.1</version>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.10</version>
 		</dependency>
   <!-- junit 测试 -->
     <dependency>
