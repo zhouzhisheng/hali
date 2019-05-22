@@ -10,6 +10,7 @@ package com.hali.core.util;
 *
  */
 public class JsonDto {
+	
 	public static final String JSON_SUCCESS = "1";
 	public static final String JSON_FAIL = "0";
 	public static final String JSON_ERROE = "-1";
