@@ -10,9 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ServletComponentScan
 @SpringBootApplication
-@EnableAutoConfiguration
-// 启动缓存注解，不需要缓存可删除
-@EnableCaching
 public class AppRunner extends SpringBootServletInitializer {
 
 	@Override
