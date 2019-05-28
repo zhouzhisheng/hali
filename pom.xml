@@ -5,36 +5,94 @@
   <groupId>com.hali</groupId>
   <artifactId>hali</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>latest</version>
+  <name>hali</name>
+  <!-- 虽然Hali使用了宽松的GPL协议，但开发不易，希望您可以保留一下版权声明。笔芯~ -->
+  <description>
+      hali 一个基于Springboot 的Java博客参照Tble  与Halo编写而成。 已内容为中心。
+  </description>
   
-  <name>hali Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <skipTests>true</skipTests>
-  </properties>
-  
-  <!-- 此处为Springboot依赖 不加入Springboot热部署可能失败 -->
+	<developers>
+		<developer>
+			<id>zhouzhisheng</id>
+			<name>zhouzhisheng</name>
+			<email>zhisheng.zhou@chinacreator.com</email>
+			<url>https://zzs-dyl.club</url>
+		</developer>
+	</developers>
+	  <!-- 此处为Springboot依赖 不加入Springboot热部署可能失败 -->
   	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.8.RELEASE</version>
+		<version>2.1.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
+  <properties>
+  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <oh-my-email.version>0.0.4</oh-my-email.version>
+	<lombok.version>1.18.4</lombok.version>
+	<ehcache.version>3.6.3</ehcache.version>
+	<hutool.version>4.4.2</hutool.version>
+	<upyun-java-sdk.version>4.0.1</upyun-java-sdk.version>
+	<qiniu-java-sdk.version>7.2.18</qiniu-java-sdk.version>
+	<thumbnailator.version>0.4.8</thumbnailator.version>
+	<commonmark.version>0.12.1</commonmark.version>
+    <skipTests>true</skipTests>
+  </properties>
+  
+
 	
   <dependencies>
   <!-- Spring boot 热部署 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<exclusions>
+				   <exclusion>
+				      <groupId>org.springframework.boot</groupId>
+				      <artifactId>spring-boot-starter-tomcat</artifactId>
+				   </exclusion>
+				</exclusions> <!-- 内加tomcat -->
 		</dependency>
+		
        <dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper-spring-boot-starter</artifactId>
-			<version>1.2.10</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope> <!-- springboot Test -->
 		</dependency>
+		
+		<!-- undertow -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+		   <!-- JPA -->
+		  <dependency>
+            <groupId>org.springframework.boot</groupId>		
+              <artifactId>spring-boot-starter-data-jpa</artifactId>  
+		  </dependency>
+		<!-- mysql -->
+		<dependency>
+		   <groupId>mysql</groupId>
+		   <artifactId>mysql-connector-java</artifactId>
+		   <scope>runtime</scope> <!-- springboot Mysql 版本为8.0 -->
+		</dependency>
+	  <!-- H2Database -->	
+		<dependency>
+		   <groupId>com.h2database</groupId>
+		  <artifactId>h2</artifactId> <!-- 1.4.197  H2数据库可不依赖于mysql -->
+		  <scope>runtime</scope>
+		</dependency>
+		<!-- cache -->
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<!-- freemarker依赖 -->
+		
 		<!-- Spring MVC -->
   <dependency>
     <groupId>org.springframework.boot</groupId>
