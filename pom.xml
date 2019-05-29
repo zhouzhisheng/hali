@@ -92,7 +92,17 @@
 		  <artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 		<!-- freemarker依赖 -->
-		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		<!-- 邮件 -->
+	<dependency>
+			<groupId>io.github.biezhi</groupId>
+			<artifactId>oh-my-email</artifactId>
+			<version>${oh-my-email.version}</version>
+		</dependency>
+		<!-- LOmbok -->
 		<!-- Spring MVC -->
   <dependency>
     <groupId>org.springframework.boot</groupId>
