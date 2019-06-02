@@ -207,7 +207,62 @@
     
 
   </dependencies>
-  
+  <profiles>
+  <!-- 生产环境打包配置 -->
+    <profile>
+       <id>prodId</id>
+          <repositories>
+             <repository>
+                <id>aliyun</id>
+                <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+             </repository>
+          </repositories>
+          <pluginRepositories>
+              <pluginRepository>
+                 <id>aliyun</id>
+                   <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+              </pluginRepository>
+          </pluginRepositories>
+          <build>
+              <finalName>hali</finalName>
+              <resources>
+                 <resource>
+                    <directory>src/main/java</directory>
+                    <filtering>false</filtering>
+                    <excludes>
+                         <exclude>**/*.java</exclude>
+                    </excludes>
+                 </resource>
+              </resources>
+              <plugins>
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-surefire-plugin</artifactId>
+                      <configuration>
+                         <skip>true</skip>
+                      </configuration>
+                  </plugin>
+                  
+                  <plugin>
+                     <artifactId>maven-compiler-plugin</artifactId>
+                      <configuration>
+                          <source>1.8</source>
+                           <target>1.8</target>
+                           <encoding>UTF-8</encoding>
+                      </configuration>
+                  </plugin>
+                  
+                  <plugin>
+                     <artifactId>maven-assembly-plugin</artifactId>
+                       <configuration>
+                          
+                       </configuration>
+                  </plugin>                  
+                  
+              </plugins>
+          </build>
+    </profile>
+  </profiles>
   <build>
     <finalName>hali</finalName>
   </build>
