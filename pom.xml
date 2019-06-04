@@ -278,14 +278,33 @@
                         <configuration>
                            <archive>
                                <manifest>
-                                  <mainClass>com.hali.core.hali.Application</mainClass>
+                                  <mainClass>com.core.hali.Application</mainClass>
+                                  <classpathPrefix>lib/</classpathPrefix>
+                                  <addClasspath>true</addClasspath>
                                </manifest>
+                               <manifestEntries>
+                                   <Class-Path>resources/</Class-Path>
+                               </manifestEntries>
                            </archive>
                          </configuration>
                   </plugin>           
               </plugins>
           </build>
     </profile>
+    <!-- CI环境 -->
+    <profile>
+        <id>ciHali</id>
+        <build>
+           <finalName>hali</finalName>
+        </build>
+    </profile>
+    
+    
+    
+    
+    
+    
+    
   </profiles>
   <build>
     <finalName>hali</finalName>
