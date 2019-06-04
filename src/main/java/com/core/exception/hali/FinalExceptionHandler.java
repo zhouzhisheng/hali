@@ -1,4 +1,4 @@
-package com.hali.core.exception;
+package com.core.exception.hali;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hali.core.util.JsonDto;
+import com.core.util.hali.JsonDto;
 
 import cn.hutool.core.date.DateUtil;
 

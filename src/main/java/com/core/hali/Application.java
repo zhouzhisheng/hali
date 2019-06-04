@@ -1,4 +1,4 @@
-package com.hali.core.hali;
+package com.core.hali;
 
 
 public class Application {
