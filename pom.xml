@@ -306,7 +306,36 @@
                  </resource>
            </resources>
            <plugins>
-             <plugin></plugin> 
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-surefire-plugin</artifactId>
+                 <configuration>
+                     <skip>true</skip>
+                 </configuration>
+             </plugin> 
+             
+             <!-- 1.8 -->
+             <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                 <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                 </configuration>
+             </plugin>
+             
+             <!-- assembly.xml -->
+             <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                   <appendAssemblyId>false</appendAssemblyId>
+                   <descriptors>
+                     <descriptor>assembly.xml</descriptor>
+                   </descriptors>
+                 </configuration>
+             </plugin>
+             
+             
            </plugins>
         </build>
     </profile>
