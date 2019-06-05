@@ -332,9 +332,23 @@
                    <descriptors>
                      <descriptor>assembly.xml</descriptor>
                    </descriptors>
+                   <outputDirectory>${project.build.directory}}/dist/</outputDirectory>
                  </configuration>
+                 <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                           <goal>single</goal>
+                        </goals>
+                    </execution>
+                 </executions>
              </plugin>
              
+             <!-- 3.1.0 -->
+             <plugin>
+             
+             </plugin>
              
            </plugins>
         </build>
