@@ -347,7 +347,21 @@
              
              <!-- 3.1.0 -->
              <plugin>
-             
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-jar-plugin</artifactId>
+             <version>3.1.0</version>
+             <configuration>
+                <archive>
+                  <manifest>
+                     <mainClass>com.core.hali.Application</mainClass>
+                     <classpathPrefix>lib/</classpathPrefix>
+                     <addClasspath>true</addClasspath>
+                  </manifest>
+                  <manifestEntries>
+                    <Class-Path>resources/</Class-Path>
+                  </manifestEntries>
+                </archive>
+             </configuration>
              </plugin>
              
            </plugins>
@@ -355,7 +369,7 @@
     </profile>
     
     
-    
+    <!-- 开发环境 -->
     
     
     
