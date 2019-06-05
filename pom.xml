@@ -296,6 +296,18 @@
         <id>ciHali</id>
         <build>
            <finalName>hali</finalName>
+           <resources>
+           <resource>
+             <directory>src/main/java</directory>
+                        <filtering>false</filtering>
+                        <excludes>
+                            <exclude>**/*.java</exclude>
+                        </excludes>
+                 </resource>
+           </resources>
+           <plugins>
+             <plugin></plugin> 
+           </plugins>
         </build>
     </profile>
     
