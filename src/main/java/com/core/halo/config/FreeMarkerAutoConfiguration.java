@@ -20,7 +20,7 @@ public class FreeMarkerAutoConfiguration {
 	@Autowired
 	private  freemarker.template.Configuration configuration;
 	
-	
+
 	
 	
 }
