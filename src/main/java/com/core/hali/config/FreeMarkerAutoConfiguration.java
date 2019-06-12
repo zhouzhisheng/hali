@@ -1,4 +1,4 @@
-package com.core.halo.config;
+package com.core.hali.config;
 
 import javax.annotation.PostConstruct;
 
