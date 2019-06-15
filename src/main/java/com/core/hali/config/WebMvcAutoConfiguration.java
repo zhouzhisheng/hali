@@ -13,6 +13,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import cc.ryanc.halo.filter.CorsFilter;
@@ -141,5 +142,16 @@ public class WebMvcAutoConfiguration {
         final SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.CHINA);
         return slr;
+    }
+    /**
+     * 国际化参数拦截器
+     *
+     * @return LocaleChangeInterceptor
+     */
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        final LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
+        return lci;
     }
 }
