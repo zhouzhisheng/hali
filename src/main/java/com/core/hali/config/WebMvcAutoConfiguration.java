@@ -1,5 +1,7 @@
 package com.core.hali.config;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -7,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.Ordered;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import cc.ryanc.halo.filter.CorsFilter;
 import cc.ryanc.halo.web.interceptor.ApiInterceptor;
@@ -127,5 +131,15 @@ public class WebMvcAutoConfiguration {
 
         return corsFilter;
     }
-    
+    /**
+     * 国际化设置
+     *
+     * @return LocaleResolver
+     */
+    @Bean
+    public LocaleResolver localeResolver() {
+        final SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.CHINA);
+        return slr;
+    }
 }
