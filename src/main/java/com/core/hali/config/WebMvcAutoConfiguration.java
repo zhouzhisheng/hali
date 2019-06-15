@@ -2,12 +2,16 @@ package com.core.hali.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
+import cc.ryanc.halo.filter.CorsFilter;
 import cc.ryanc.halo.web.interceptor.ApiInterceptor;
 import cc.ryanc.halo.web.interceptor.InstallInterceptor;
 import cc.ryanc.halo.web.interceptor.LocaleInterceptor;
@@ -87,4 +91,41 @@ public class WebMvcAutoConfiguration {
         registry.addResourceHandler("/backup/**")
                 .addResourceLocations("file:///" + System.getProperties().getProperty("user.home") + "/halo/backup/");
     }
+    
+//  /**
+//  * 跨域
+//  *
+//  * @param registry registry
+//  */
+// @Override
+// public void addCorsMappings(CorsRegistry registry) {
+//     registry.addMapping("/api/**")
+//             .allowedHeaders("*")
+//             .allowedOrigins("*")
+//             .allowedMethods("GET", "POST")
+//             .exposedHeaders("access-control-allow-headers",
+//                     "access-control-allow-methods",
+//                     "access-control-allow-origin",
+//                     "access-control-max-age",
+//                     "X-Frame-Options",
+//                     "token")
+//             .allowCredentials(false).maxAge(3600);
+// }    
+    
+    /**
+     * Creates a CorsFilter.
+     *
+     * @return Cors filter registration bean
+     */
+    @Bean
+    FilterRegistrationBean<CorsFilter> corsFilter() {
+        FilterRegistrationBean<CorsFilter> corsFilter = new FilterRegistrationBean<>();
+
+        corsFilter.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        corsFilter.setFilter(new CorsFilter());
+        corsFilter.addUrlPatterns("/api/*");
+
+        return corsFilter;
+    }
+    
 }
