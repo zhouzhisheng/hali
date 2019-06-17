@@ -2,18 +2,17 @@ package com.core.hali.exception;
 
 import org.springframework.http.HttpStatus;
 
-public abstract class NotFoundException extends HaloException {
-
-	  public NotFoundException(String message) {
+public class ServiceException  extends HaloException{
+	  public ServiceException(String message) {
 	        super(message);
 	    }
 
-	    public NotFoundException(String message, Throwable cause) {
+	    public ServiceException(String message, Throwable cause) {
 	        super(message, cause);
 	    }
 
 	    @Override
 	    public HttpStatus getStatus() {
-	        return HttpStatus.NOT_FOUND;
+	        return HttpStatus.INTERNAL_SERVER_ERROR;
 	    }
 }

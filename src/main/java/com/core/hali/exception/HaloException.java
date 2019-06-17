@@ -4,20 +4,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-import cc.ryanc.halo.exception.HaloException;
-
 /**
  * 
  * Base exception of the project.
  * @author zhisheng.zhou
  *
  */
-public final class HaloException  extends RuntimeException{  
+public  abstract class HaloException  extends RuntimeException{  
 
 	/**
 	 * Error errorDate
 	 */
-	private Object errorDate;
+    private Object errorData;
 	
 	public HaloException(String message) {
         super(message);
