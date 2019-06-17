@@ -12,7 +12,7 @@ import cc.ryanc.halo.exception.HaloException;
  * @author zhisheng.zhou
  *
  */
-public final class HaloException  extends HaloException{  
+public final class HaloException  extends RuntimeException{  
 
 	/**
 	 * Error errorDate
