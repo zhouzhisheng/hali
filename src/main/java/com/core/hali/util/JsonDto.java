@@ -1,4 +1,4 @@
-package com.core.util.hali;
+package com.core.hali.util;
 
 /**
  * 

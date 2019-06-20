@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.core.util.hali.JsonDto;
+import com.core.hali.util.JsonDto;
 
 import cn.hutool.core.date.DateUtil;
 
