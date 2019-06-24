@@ -4,7 +4,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 
 /**
- * @deprecated 
  * @author zhisheng.zhou
  *
  */
